@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="my-4">New Review: <%= @restaurant.name %></h1>
+
+  <%= simple_form_for [@restaurant, @review] do |form| %>
+    <div class="mb-3">
+      <%= form.input :rating, label: "Rating", input_html: { min: 0, max: 5 }, hint: "Rate between 0 and 5" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.input :content, as: :text, label: "Content" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.button :submit, "Create Review", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= link_to "Back to restaurants", restaurants_path, class: "btn btn-primary"%>
+  </div>
+</div>

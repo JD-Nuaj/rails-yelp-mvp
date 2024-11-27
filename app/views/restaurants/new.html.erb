@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="my-4">New Restaurant</h1>
+
+  <%= simple_form_for @restaurant do |form| %>
+    <div class="mb-3">
+      <%= form.input :name, label: "Name" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.input :address, label: "Address" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.input :phone_number, label: "Phone Number" %>
+    </div class="mb-3">
+
+    <div class="mb-3">
+      <%= form.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"], label: "Category" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.button :submit, "Create Restaurant", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= link_to "Back to restaurants", restaurants_path %>
+  </div>
+</div>

@@ -11,4 +11,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :restaurants, only: [:index, :new, :create, :show] do
+    # Routes imbriquées pour les avis
+    resources :reviews, only: [:new, :create]
+  end
+
+  # Root de l'application
+  root "restaurants#index"
 end
